@@ -1,142 +1,66 @@
-#  Hi, I'm Stanley
+# Stanley Chidi
 
-Backend Engineer | Golang | Node.js | Distributed Systems & Payments
+Backend Engineer — Go, Node.js, distributed systems, payments infrastructure
 
----
+## About
 
-##  About Me
-I build scalable backend systems focused on reliability, performance, and real-world production challenges.
+I build backend systems — APIs, job queues, payment flows — and spend most of
+my time thinking about what happens when things fail: a worker crashes
+mid-job, a webhook arrives twice, a payment provider times out. Getting the
+happy path working is the easy part; the interesting problems are in retries,
+idempotency, and reconciliation.
 
-- 🔧 Golang & Node.js specialist  
-- 💳 Payment systems (Flutterwave, Paystack, escrow)  
-- ⚙️ Distributed systems & job queues   
-- 🔄 Webhooks, retries, reconciliation systems  
+Currently working in Go and Node.js, with Redis, PostgreSQL, and MySQL.
 
----
+## Projects
 
-##  What I’m Working On
-- Distributed job processing systems  
-- Payment reconciliation engine with retry & backoff  
-- Webhook reliability systems (idempotency + recovery)  
-- Scalable booking & reservation backend  
+### Distributed Job Queue (Go)
 
----
+A queue-based job processing system: REST API for submitting jobs, Redis-backed
+queue, worker pool for async processing, Nginx round-robin across API
+instances. Includes retry logic and a dead-letter queue for jobs that fail
+repeatedly, plus a metrics endpoint for observability.
 
-##  Tech Stack
-- Languages: Go, JavaScript (Node.js)  
-- Frameworks: Gin, Express  
-- Databases: MongoDB, PostgreSQL, MySQL, Redis  
+`Go · Gin · Redis · Nginx · Docker`
 
----
+### Hotel Booking System (Go, Next.js)
 
-##  Featured Projects
+Full-stack booking backend built with clean architecture (repository pattern,
+dependency injection, service-layer separation). Currently covers room
+management — create/update/delete, availability status, pagination, filtering
+— with unit tests around the service layer, including race-condition checks.
+Booking/payment flow is in progress.
 
----
+`Go · Next.js `
 
-###  Distributed Job Queue Service (Go)
+### Rate-Limited File Uploader
 
-A distributed job processing system demonstrating queue-based architecture, horizontal scaling, and fault-tolerant design.
+An API for uploading and streaming .txt/.csv files without loading them fully
+into memory, with per-IP rate limiting and structured logging.
 
-####  Overview
-- Accepts jobs via REST API  
-- Queues jobs in Redis  
-- Processes asynchronously using worker pools  
-- Exposes system metrics for monitoring  
+`Node.js · Express · Winston`
 
-####  Architecture
-Client → Nginx → API Instances → Redis Queue → Workers → Results  
+### Smart URL Shortener
 
-#### Features
-- REST API for job submission & tracking  
-- Redis-backed queue  
-- Concurrent worker pools  
-- Horizontal scaling (API + workers)  
-- Load balancing with Nginx (round-robin)  
-- Retry mechanism for failed jobs  
-- Dead Letter Queue (DLQ)  
-- Metrics endpoint for observability  
+URL shortener with Redis caching for redirects, click analytics, and a small
+monitoring dashboard (API health, DB/Redis status, response times, uptime).
 
-####  Tech Stack
-Go • Gin • Redis • Nginx • Docker  
+`Next.js · Express · MySQL · Redis`
 
----
+### Anochem Group Platform
 
-###  Smart URL Shortener
+Product management system for a small cosmetics business — REST API,
+MongoDB + Redis, React/TypeScript frontend.
 
-A full-stack system with caching, analytics, and real-time monitoring.
+`Node.js · Express · MongoDB · Redis · React · TypeScript`
 
-####  Features
-- URL shortening with persistent storage  
-- Redis caching for fast redirects  
-- Analytics tracking (click insights)  
-- Live system monitoring:
-  - API health  
-  - DB + Redis status  
-  - Response time  
-  - Memory usage  
-  - Uptime  
+## What I'm working on now
 
-####  Tech Stack
-Next.js • Express • MySQL • Redis • Tailwind  
+- Finishing the payment/reconciliation flow for the booking system
+  (Flutterwave/Paystack, idempotent webhook handling, retry + backoff)
+- Getting more comfortable with distributed systems failure modes —
+  partial failures, exactly-once vs at-least-once delivery, that kind of thing
 
----
+## Contact
 
-###  Rate-Limited File Uploader API
-
-Production-style API with streaming processing and built-in rate limiting.
-
-####  Features
-- Upload .txt and .csv files  
-- Rate limiting (5 uploads/min/IP)  
-- Streaming file processing (memory efficient)  
-- File metadata extraction  
-- Structured logging (Winston)  
-- Clean architecture (controller/service/middleware)  
-
-####  Architecture
-Client → Express → Middleware → Controller → Service → File System  
-
-🔗 Live API: https://rate-limited-uploader.onrender.com/api/upload  
-
----
-
-###  Anochem Group Platform
-
-Full-stack product management system for a cosmetics company.
-
-####  Features
-- REST API for product management  
-- MongoDB + Redis integration  
-- Modular backend architecture  
-- Responsive frontend with dynamic data fetching  
-
-####  Tech Stack
-Node.js • Express • MongoDB • Redis • React • TypeScript  
-
----
-
-###  Hotel Booking System
-Backend system with payments, booking logic, and webhook handling  
-
-#### Key Features
-- Payment integration (Flutterwave/Paystack)  
-- Idempotent webhook handling  
-- Retry + reconciliation system  
-- Booking lifecycle management  
-
----
-
-##  Engineering Focus
-
-I focus on solving real backend problems:
-
-- Distributed system design  
-- Fault tolerance & retries  
-- Idempotent APIs  
-- Background job processing  
-- System observability & metrics  
-
----
-
-##  Contact Me
-- Email: iam8nd9@gmail.com
+iam8nd9@gmail.com 
